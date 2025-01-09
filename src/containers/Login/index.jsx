@@ -40,11 +40,13 @@ export function Login() {
                     <InputContainer>
                         <label>Email</label>
                         <input type='email' {...register('email')}/>
+                        <p>{errors?.email?.message}</p>
                     </InputContainer>
 
                     <InputContainer>
                         <label>Senha</label>
                         <input type='password' {...register('password')}/>
+                        <p>{errors?.password?.message}</p>
                     </InputContainer>
 
                     <Button type='submit'>Entrar</Button>
