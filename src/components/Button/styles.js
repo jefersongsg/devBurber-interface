@@ -1,5 +1,5 @@
 
-import styled from "styled-components";
+import styled from 'styled-components';
 
 
 export const ContainerButton = styled.button`
@@ -9,7 +9,7 @@ export const ContainerButton = styled.button`
  background-color: #9758A6;
  color: #fff;
  border-radius: 5px;
- font-family: "Road Rage", serif;
+ font-family: 'Road Rage', serif;
  font-size: 30px;
  
  &:hover {
