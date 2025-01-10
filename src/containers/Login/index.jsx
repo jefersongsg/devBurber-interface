@@ -4,12 +4,15 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { toast } from 'react-toastify'
 
-import { Container, Form, InputContainer, LeftContainer, RightContainer, Title } from './styles';
+import { Container, Form, InputContainer, LeftContainer, Link, RightContainer, Title } from './styles';
 import Logo from '../../assets/logo.svg';
 import { Button } from '../../components/Button';
 import { api } from '../../services/api';
+import { useNavigate } from 'react-router-dom';
 
 export function Login() {
+
+    const navigate = useNavigate();
 
     const schema = yup.object({
         email: yup
@@ -31,20 +34,28 @@ export function Login() {
         resolver: yupResolver(schema),
     })
     const onSubmit = async (data) => {
-        const response =
-            await toast.promise(
-                api.post('/session', {
+        try {
+            const { status } =
+                await api.post('/session', {
                     email: data.email,
                     password: data.password,
-                }),
-                {
-                    pending: 'Verificando seus dados',
-                    success: 'Seja Bem-vindo(a)',
-                    error: 'Email ou senha Incorretos',
-                },
-            );
+                });
 
-        console.log(response)
+
+            if (status === 200 || status === 201) {
+                setTimeout(() => {
+                    navigate('/')
+                }, 2000);
+                toast.success('Seja Bem-vindo(a)');
+            } else if (status === 401) {
+                toast.error('Email ou senha Incorretos!');
+            } else {
+                throw new Error();
+            }
+
+        } catch (error) {
+            toast.error('Falha no Sistema! Tente novamente.');
+        }
     };
 
     return (
@@ -73,7 +84,7 @@ export function Login() {
 
                     <Button type='submit'>Entrar</Button>
                 </Form>
-                <p> Não possui conta? <a>Clique aqui.</a></p>
+                <p> Não possui conta? <Link to='/cadastro'>Clique aqui.</Link></p>
             </RightContainer>
         </Container>
     )
