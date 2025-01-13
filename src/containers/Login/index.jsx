@@ -32,32 +32,34 @@ export function Login() {
         formState: { errors },
     } = useForm({
         resolver: yupResolver(schema),
-    })
+    });
+
+    
+
     const onSubmit = async (data) => {
-        try {
-            const { status } =
-                await api.post('/session', {
+
+        const { data: { token } } =
+            await toast.promise(
+                api.post('/session', {
                     email: data.email,
                     password: data.password,
-                });
+                }),
+                {
+                    pending: 'Verificando seus dados',
+                    success: {
+                        render() {
+                            setTimeout(() => {
+                                navigate('/');
+                            }, 2000);
+                            return 'Seja Bem-vindo(a) 😊';
+                        }
+                    },
+                    error: 'Email ou senha Incorretos! 😤',
+                },
+            );
 
-
-            if (status === 200 || status === 201) {
-                setTimeout(() => {
-                    navigate('/')
-                }, 2000);
-                toast.success('Seja Bem-vindo(a)');
-            } else if (status === 401) {
-                toast.error('Email ou senha Incorretos!');
-            } else {
-                throw new Error();
-            }
-
-        } catch (error) {
-            toast.error('Falha no Sistema! Tente novamente.');
-        }
+        localStorage.setItem('token', token);
     };
-
     return (
         <Container>
             <LeftContainer>

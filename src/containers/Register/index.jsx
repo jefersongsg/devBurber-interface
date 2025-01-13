@@ -14,8 +14,7 @@ export function Register() {
 
     const navigate = useNavigate();
 
-    const schema = yup
-        .object({
+    const schema = yup.object({
             name: yup
                 .string()
                 .required('O nome é obrigatório'),
@@ -62,13 +61,13 @@ export function Register() {
                     navigate('/login');
                 },2000);
                 toast.success('Conta criada com Sucesso!');
-            } else if (status === 409) {
+            } else if (status === 400) {
                 toast.error('Email já cadastrado! Façao o login para continuar');
             } else {
                 throw new Error();
             }
         } catch (error) {
-            toast.error('Falha no Sistema! Tente novamente.');
+            toast.error('😪Falha no Sistema! Tente novamente.');
         }
     };
     return (

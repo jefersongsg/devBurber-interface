@@ -1,3 +1,4 @@
+
 import styled from 'styled-components';
 import BannerHome from '../../assets/banner-home.svg';
 import Background from '../../assets/background.png'
