@@ -8,15 +8,15 @@ import Background from '../../assets/background.png'
 export const Banner = styled.div`
     display: flex;
     background: url('${BannerHome}');
-    background-size: contain;
+    background-size: cover;
     background-position: center;
-    height:300px;
+    height:260px;
 
     h1 {
     font-family: 'Road Rage', serif;
     font-size: 80px;
     color: #ffffff;
-    margin-left: 74%;
+    margin-left: 75%;
     margin-top: 4%;
     }
 `;
@@ -27,8 +27,5 @@ export const Container = styled.div`
     rgba(255,255,255, 0.3)
     ),url('${Background}');
     background-size:cover;
-    height:400px;
-`;
-
-export const Content = styled.div`
+    
 `;

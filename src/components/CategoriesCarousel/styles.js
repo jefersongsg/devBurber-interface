@@ -1,12 +1,11 @@
 
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
     .crousel-item {
-        padding-right: 40px;
+        padding-right: 30px;
     }
-
-    padding: 40px;
+    padding: 30px;
 `;
 
 export const  Title = styled.h2`
@@ -16,8 +15,7 @@ export const  Title = styled.h2`
     padding-bottom: 12px;
     position: relative;
     text-align: center;
-    margin-bottom: 40px;
-    margin-top: 20px;
+    margin-bottom: 20px;
 
     &::after {
         content: '';
@@ -35,13 +33,11 @@ export const  ContainerItems = styled.div`
     background-position: center;
     background-size: cover;
     border-radius: 20px;
-
-    display:flex;
     align-items: center;
     padding: 20px 10px;
-    width: 100%;
-    height: 230px;
-
+    width: 90%;
+    height: 200px;
+    
     p {
         color: #ffffff;
         background-color: rgba(0, 0, 0, 0.5);
@@ -49,5 +45,7 @@ export const  ContainerItems = styled.div`
         border-radius: 30px;
         font-size: 22.5px;
         font-weight: 700;
+        margin-top: 100px;
+        width: 65%;
     }
 `;
