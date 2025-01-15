@@ -42,7 +42,7 @@ export function CategoriesCarousel() {
 
     return (
         <Container>
-            <Title>CATEGORIAS</Title>
+            <Title> CATEGORIAS </Title>
             <Carousel
                 responsive={responsive}
                 infinite={true}

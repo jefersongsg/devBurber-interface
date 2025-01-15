@@ -2,15 +2,36 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    .crousel-item {
-        padding-right: 40px;
+    .carousel-item {
+        padding-right: 15px;
+        padding-left: 15px;
     }
     overflow-x: hidden;
     
     .react-multi-carousel-list {
     overflow: visible;
     }
-    padding: 40px;  
+    .react-multiple-carousel__arrow{
+    position: absolute;
+    outline: 0;
+    transition: all .5s;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.01);
+    min-width: 43px;
+    min-height: 43px;
+    opacity: 1;
+    margin: 0px 0px 190px 0px;
+    }
+    .react-multiple-carousel__arrow::before {
+    font-size: 50px;
+    font-weight: bolder;
+    color: #61A120;
+    display: block;
+    text-align: center;
+    z-index: 2;
+    position: relative; 
+    }
+    padding: 15px; 
 `;
 
 export const  Title = styled.h2`

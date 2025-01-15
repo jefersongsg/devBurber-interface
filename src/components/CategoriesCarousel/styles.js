@@ -2,10 +2,31 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    .crousel-item {
-        padding-right: 30px;
+    .carousel-item {
+        padding-right: 15px;
+        padding-left: 15px;
     }
-    padding: 30px;
+    .react-multiple-carousel__arrow{
+    position: absolute;
+    outline: 0;
+    transition: all .5s;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0);
+    min-width: 43px;
+    min-height: 43px;
+    opacity: 1;
+   
+    }
+    .react-multiple-carousel__arrow::before {
+    font-size: 50px;
+    font-weight: bolder;
+    color: #9758A6;
+    display: block;
+    text-align: center;
+    z-index: 2;
+    position: relative; 
+    }
+    padding: 15px;
 `;
 
 export const  Title = styled.h2`
@@ -41,11 +62,10 @@ export const  ContainerItems = styled.div`
     p {
         color: #ffffff;
         background-color: rgba(0, 0, 0, 0.5);
-        padding: 10px 30px;
+        padding: 8px 20px;
         border-radius: 30px;
         font-size: 22.5px;
         font-weight: 700;
-        margin-top: 100px;
-        width: 65%;
+        margin-top: 115px;
     }
 `;

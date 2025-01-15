@@ -11,7 +11,7 @@ export function CardProducts({ products }) {
             <CardImage src={products.url} alt={products.name} />
             <div>
                 <p>{products.name}</p>
-                <strong>{products.price}</strong>
+                <strong>{products.currencyValue}</strong>
             </div>
             <CartButton></CartButton>
         </Container>
