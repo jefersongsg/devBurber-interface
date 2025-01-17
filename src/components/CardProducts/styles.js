@@ -11,6 +11,7 @@ export const Container = styled.div`
     background-color: #ffffff;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     width: 90%;
+    position: relative;
 
     div {
         width: 90%;
