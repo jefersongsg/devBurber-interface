@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from 'react';
-import { Banner, CategoryButton, CategoryMenu, Container, ProductsContainer, } from './styles'
+import { Banner, ButtonReturn, CategoryButton, CategoryMenu, Container, ProductsContainer, } from './styles'
 import { api } from '../../services/api';
 import { CardProducts } from '../../components/CardProducts';
 import { formatPrice } from '../../utils/formatPrice'
@@ -96,8 +96,8 @@ export function Menu() {
                         {category.name}
                     </CategoryButton>
                 ))}
+                <ButtonReturn onClick={() => navigate('/')}>Voltar</ButtonReturn>
             </CategoryMenu>
-
             <ProductsContainer>
                 {filteredProducts.map((product) => (
                     <CardProducts products={product} key={product.id} />

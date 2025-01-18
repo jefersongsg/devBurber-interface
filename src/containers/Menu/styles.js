@@ -17,7 +17,7 @@ export const Banner = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 480px;
+    height: 350px;
     width: 100%;
     position: relative;
 
@@ -34,7 +34,7 @@ export const Banner = styled.div`
     color: #ffffff;
 
     right: 20%;
-    top: 30%;
+    top: 25%;
 
     span {
     display: block;
@@ -68,6 +68,24 @@ export const CategoryButton = styled(Link)`
     &:active{
         opacity: 0.5;
     }
+`;
+export const ButtonReturn = styled(Link)`
+ text-decoration: none;
+    cursor: pointer;
+    background: none;
+    color: ${(props) =>(props.$isActiveCategory ? ' #9758A6' : '#ff8c05')};
+    font-size: 24px;
+    font-weight: 600;
+    padding-bottom: 5px;
+    line-height: 20px;
+    border: none;
+    border-bottom: ${(props) => props.$isActiveCategory && '4px solid #6f357c'};
+   
+    &:hover{
+        border-bottom: 4px solid #6f357c;
+    }
+    &:active{
+        opacity: 0.5;}
 `;
 
 export const ProductsContainer = styled.div`

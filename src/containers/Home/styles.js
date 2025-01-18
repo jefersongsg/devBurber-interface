@@ -7,13 +7,14 @@ export const Banner = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 380px;
+    height: 350px;
     width: 100%;
     position: relative;
 
     background: url('${BannerHome}') no-repeat;
     background-size: cover;
     background-position: center;
+    background-color: #121212;
     
     h1 {
     font-family: 'Road Rage';
