@@ -1,4 +1,5 @@
 
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -15,7 +16,6 @@ export const Container = styled.div`
     min-width: 43px;
     min-height: 43px;
     opacity: 1;
-   
     }
     .react-multiple-carousel__arrow::before {
     font-size: 50px;
@@ -58,14 +58,19 @@ export const  ContainerItems = styled.div`
     padding: 20px 10px;
     width: 90%;
     height: 200px;
-    
-    p {
+`;
+
+export const  CategoryButton = styled(Link)`
         color: #ffffff;
         background-color: rgba(0, 0, 0, 0.5);
         padding: 8px 20px;
         border-radius: 30px;
         font-size: 22.5px;
-        font-weight: 700;
+        font-weight: 500;
         margin-top: 115px;
-    }
+        text-decoration: none;
+        
+        &:hover{
+            background-color: #9758a6;
+        }
 `;

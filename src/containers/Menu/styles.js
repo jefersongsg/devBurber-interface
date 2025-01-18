@@ -67,7 +67,6 @@ export const CategoryButton = styled(Link)`
     }
     &:active{
         opacity: 0.5;
-        transition-duration: 0.10;
     }
 `;
 
