@@ -82,7 +82,7 @@ export function Menu() {
                             setactiveCategory(category.id)
                         }}
                     >
-                        {category.mane}
+                        {category.name}
                     </CategoryButton>
                 ))}
             </CategoryMenu>

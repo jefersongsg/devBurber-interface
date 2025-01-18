@@ -54,13 +54,21 @@ export const CategoryButton = styled(Link)`
     text-decoration: none;
     cursor: pointer;
     background: none;
-    color: ${(props) =>(props.$isActiveCategory ? '#9758a6' : '#696969')};
+    color: ${(props) =>(props.$isActiveCategory ? ' #9758A6' : '#ff8c05')};
     font-size: 24px;
-    font-weight: 500;
+    font-weight: 600;
     padding-bottom: 5px;
     line-height: 20px;
     border: none;
-    border-bottom: ${(props) => props.$isActiveCategory && '3px solid #9758a6'};
+    border-bottom: ${(props) => props.$isActiveCategory && '4px solid #6f357c'};
+   
+    &:hover{
+        border-bottom: 4px solid #6f357c;
+    }
+    &:active{
+        opacity: 0.5;
+        transition-duration: 0.10;
+    }
 `;
 
 export const ProductsContainer = styled.div`

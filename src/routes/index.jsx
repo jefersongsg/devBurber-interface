@@ -8,16 +8,16 @@ import { Menu } from '../containers/Menu';
 
 export const router = createBrowserRouter([
     {
+        path: '/',
+        element: <Home/>,
+    },
+    {
         path: '/login',
         element: <Login/>,
     },
     {
         path: '/cadastro',
         element: <Register/>,
-    },
-    {
-        path: '/',
-        element: <Home/>,
     },
     {
         path: '/cardapio',

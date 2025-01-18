@@ -20,7 +20,7 @@ export const Container = styled.div`
     .react-multiple-carousel__arrow::before {
     font-size: 50px;
     font-weight: bolder;
-    color: #9758A6;
+    color: #9758a6;
     display: block;
     text-align: center;
     z-index: 2;
