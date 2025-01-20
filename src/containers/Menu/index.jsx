@@ -96,7 +96,7 @@ export function Menu() {
                         {category.name}
                     </CategoryButton>
                 ))}
-                <ButtonReturn onClick={() => navigate('/')}>Voltar</ButtonReturn>
+                <ButtonReturn onClick={() => navigate('/')}> Voltar</ButtonReturn>
             </CategoryMenu>
             <ProductsContainer>
                 {filteredProducts.map((product) => (

@@ -54,38 +54,39 @@ export const CategoryButton = styled(Link)`
     text-decoration: none;
     cursor: pointer;
     background: none;
-    color: ${(props) =>(props.$isActiveCategory ? ' #9758A6' : '#ff8c05')};
+    color: ${(props) =>(props.$isActiveCategory ? ' #9758A6' : '#61a120')};
     font-size: 24px;
     font-weight: 600;
     padding-bottom: 5px;
     line-height: 20px;
     border: none;
-    border-bottom: ${(props) => props.$isActiveCategory && '4px solid #6f357c'};
+    border-bottom: ${(props) => props.$isActiveCategory && '4px solid #61a120'};
    
     &:hover{
         border-bottom: 4px solid #6f357c;
     }
     &:active{
-        opacity: 0.5;
+        color: #ff8c05;
     }
 `;
 export const ButtonReturn = styled(Link)`
  text-decoration: none;
     cursor: pointer;
     background: none;
-    color: ${(props) =>(props.$isActiveCategory ? ' #9758A6' : '#ff8c05')};
+    color: ${(props) =>(props.$isActiveCategory ? ' #9758A6' : '#61a120')};
     font-size: 24px;
     font-weight: 600;
     padding-bottom: 5px;
     line-height: 20px;
     border: none;
-    border-bottom: ${(props) => props.$isActiveCategory && '4px solid #6f357c'};
+    border-bottom: ${(props) => props.$isActiveCategory && '4px solid #61a120'};
    
     &:hover{
         border-bottom: 4px solid #6f357c;
     }
     &:active{
-        opacity: 0.5;}
+        opacity: #ff8c05;
+        }
 `;
 
 export const ProductsContainer = styled.div`
