@@ -69,6 +69,7 @@ export const CategoryButton = styled(Link)`
         color: #ff8c05;
     }
 `;
+
 export const ButtonReturn = styled(Link)`
  text-decoration: none;
     cursor: pointer;
@@ -80,7 +81,7 @@ export const ButtonReturn = styled(Link)`
     line-height: 20px;
     border: none;
     border-bottom: ${(props) => props.$isActiveCategory && '4px solid #61a120'};
-   
+    
     &:hover{
         border-bottom: 4px solid #6f357c;
     }

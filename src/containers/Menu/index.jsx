@@ -5,6 +5,7 @@ import { api } from '../../services/api';
 import { CardProducts } from '../../components/CardProducts';
 import { formatPrice } from '../../utils/formatPrice'
 import { useLocation, useNavigate } from 'react-router-dom';
+import { ArrowFatLeft } from '@phosphor-icons/react'
 
 export function Menu() {
     const [categories, setCategories] = useState([]);
@@ -96,7 +97,8 @@ export function Menu() {
                         {category.name}
                     </CategoryButton>
                 ))}
-                <ButtonReturn onClick={() => navigate('/')}> Voltar</ButtonReturn>
+               
+                <ButtonReturn onClick={() => navigate('/')}> <ArrowFatLeft color='#61a120' weight='fill' size={20}/> Voltar</ButtonReturn>
             </CategoryMenu>
             <ProductsContainer>
                 {filteredProducts.map((product) => (

@@ -9,10 +9,12 @@ import Logo from '../../assets/logo.svg';
 import { Button } from '../../components/Button';
 import { api } from '../../services/api';
 import { useNavigate } from 'react-router-dom';
+import { useUser } from '../../hooks/UserContext';
 
 export function Login() {
 
     const navigate = useNavigate();
+    const { putUserData } = useUser();
 
     const schema = yup.object({
         email: yup
@@ -38,7 +40,7 @@ export function Login() {
 
     const onSubmit = async (data) => {
 
-        const { data: { token } } =
+        const { data:userData } =
             await toast.promise(
                 api.post('/session', {
                     email: data.email,
@@ -57,8 +59,9 @@ export function Login() {
                     error: 'Email ou senha Incorretos! 😤',
                 },
             );
+            putUserData(userData);
 
-        localStorage.setItem('token', token);
+        //localStorage.setItem('token', token);
     };
     return (
         <Container>
