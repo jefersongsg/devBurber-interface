@@ -98,7 +98,9 @@ export function Menu() {
                     </CategoryButton>
                 ))}
                
-                <ButtonReturn onClick={() => navigate('/')}> <ArrowFatLeft color='#61a120' weight='fill' size={20}/> Voltar</ButtonReturn>
+                <ButtonReturn onClick={() => navigate('/')}>
+                    <ArrowFatLeft color='#61a120' weight='fill' size={20}/
+                    > Voltar</ButtonReturn>
             </CategoryMenu>
             <ProductsContainer>
                 {filteredProducts.map((product) => (

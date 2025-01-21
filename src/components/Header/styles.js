@@ -6,6 +6,7 @@ export const Container = styled.div`
     background-color: #000000;
     width: 100%;
     height: 72px;
+    padding: 0 60px;
 `;
 
 export const Content = styled.div`
@@ -25,16 +26,20 @@ export const Navigation = styled.div`
     height: 72px;
 
     div {
-        margin: 56px;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 20px;
+
+        hr {
+          height: 20px;
+          border: 1px solid #625e5e;
+        }
     }
 `;
 
 export const HeaderLink = styled(Link)`
-    color: #ffffff;
+    color: ${(props) => (props.$isActive ? '#9758a6' : '#fff')};
     text-decoration: none;
     font-size: 14px;
     transition: color 200ms;
@@ -70,15 +75,15 @@ export const Profile = styled.div`
 `;
 
 export const Logout = styled.button`
-    display: flex;
-    align-items: center;
-    gap: 10px;
-`;
-
-export const LinkContainer = styled.div`
     color: #ff3205;
     text-decoration: none;
     font-weight: 700;
     background-color: transparent;
     border: none;
+`;
+
+export const LinkContainer = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 10px; 
 `;
