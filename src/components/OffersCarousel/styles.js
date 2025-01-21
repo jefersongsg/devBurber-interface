@@ -38,7 +38,7 @@ export const  Title = styled.h2`
     font-size: 32px;
     font-weight: 800;
     color: #61A120;
-    padding-bottom: 20px;
+    padding-bottom: 15px;
     position: relative;
     text-align: center;
     margin-bottom: 65px;
@@ -48,7 +48,7 @@ export const  Title = styled.h2`
         position: absolute;
         bottom: 0;
         width: 56px;
-        height: 5px;
+        height: 4px;
         background-color: #61A120;
         left: calc(50% - 28px);
     }

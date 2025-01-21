@@ -33,7 +33,7 @@ export const  Title = styled.h2`
     font-size: 32px;
     font-weight: 800;
     color: #9758a6;
-    padding-bottom: 12px;
+    padding-bottom: 15px;
     position: relative;
     text-align: center;
     margin-bottom: 20px;
