@@ -16,3 +16,5 @@ export * from './OffersCarousel'
 export * from './Table'
 
 export * from './CartItens'
+
+export * from './CartResume'

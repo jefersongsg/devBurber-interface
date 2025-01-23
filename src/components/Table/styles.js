@@ -2,9 +2,9 @@
 import styled from 'styled-components';
 
 export const Root = styled.table`
-    width: 100%;
     border-collapse: collapse;
     background-color: #fff;
+    border-radius: 20px;
 `;
 
 export const Header = styled.header`
@@ -32,6 +32,7 @@ export const Th = styled.th`
 `;
 
 export const Td = styled.td`
+    margin-top: 30px;
     width: 100%;
     padding: 16px;
     color: #484848;
