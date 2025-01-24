@@ -2,8 +2,9 @@
 import { useCart } from '../../hooks/CartContext';
 import { Table } from '../Table';
 import { formatPrice } from '../../utils/formatPrice';
-import { ButtonGroup, EmptyCart, ProductImage, TotalPrice, Trash } from './styles';
+import { ButtonGroup, EmptyCart, ProductImage, TotalPrice, Trash, LinkTo } from './styles';
 import TrashIcon from '../../assets/trash.svg'
+
 
 export function CartItens() {
     const { cartProducts, decreaseProduct, increaseProduct, deleteProduct } = useCart();
@@ -48,7 +49,9 @@ export function CartItens() {
             ) : (
                 <EmptyCart>Carrinho Vazio</EmptyCart>
             )}
+             <LinkTo to={'/cardapio'}>{Text ='< Adicionar mais produtos'}</LinkTo>
             </Table.Body>
+           
         </Table.Root>
     )
 }

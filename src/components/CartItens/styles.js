@@ -1,5 +1,6 @@
 
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 
 export const ProductImage = styled.img`
@@ -46,3 +47,10 @@ export const Trash = styled.img`
     width: 25px;
     cursor: pointer;
 `;
+export const LinkTo = styled(Link)`
+    color: #5C2669;
+    margin-left: 60%;
+    font-size: 18px;
+    line-height: 47px;
+    text-decoration-skip-ink: none;
+ `;
