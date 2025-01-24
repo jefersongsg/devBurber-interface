@@ -37,6 +37,7 @@ export const EmptyCart = styled.p`
     font-size: 30px;
     text-align: center;
     font-weight: bold;
+    margin: 70px auto;
 `;
 export const TotalPrice = styled.p`
     font-weight: bold;

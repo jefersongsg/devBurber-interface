@@ -13,4 +13,7 @@ export const ContainerButton = styled.button`
     &:hover {
       background-color: #6f357c;
     }
+    &:active {
+      background-color: #61A120;
+    }
 `; 

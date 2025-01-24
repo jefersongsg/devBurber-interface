@@ -49,7 +49,7 @@ export function CartItens() {
             ) : (
                 <EmptyCart>Carrinho Vazio</EmptyCart>
             )}
-             <LinkTo to={'/cardapio'}>{Text ='< Adicionar mais produtos'}</LinkTo>
+             <LinkTo to={'/'}>{Text ='< Adicionar mais produtos'}</LinkTo>
             </Table.Body>
            
         </Table.Root>
