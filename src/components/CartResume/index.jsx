@@ -51,8 +51,6 @@ export function CartResume() {
         }
     };
 
-
-
   /*  try {
         const { status } =
             await api.post('/orders',
