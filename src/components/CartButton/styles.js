@@ -2,18 +2,18 @@
 import styled from "styled-components";
 
 export const ContainerButton = styled.button`
-    background-color: #9758a6;
+    background-color:  ${(props) => props.theme.purple};
     width: 100%;
     height: 40px;
     border-radius: 7px;
     border: 0;
     font-size: 30px;
-    color: #ffffff;
+    color:  ${(props) => props.theme.white};
 
     &:hover {
-      background-color: #6f357c;
+      background-color:  ${(props) => props.theme.secondDarkPurple};
     }
     &:active {
-      background-color: #61A120;
+      background-color: ${(props) => props.theme.green};
     }
 `; 

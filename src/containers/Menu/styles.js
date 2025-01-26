@@ -24,14 +24,14 @@ export const Banner = styled.div`
     background: url('${BannerMenu}') no-repeat;
     background-position: center;
     background-size: cover;
-    background-color: #1f1f1f;
+    background-color:  ${(props) => props.theme.mainBlack};
 
     h1 {
-    font-family: 'Road Rage';
+    font-family: ${(props) => props.theme.roadRageFont};
     font-size: 80px;
     line-height: 60px;
     position: absolute;
-    color: #ffffff;
+    color:  ${(props) => props.theme.white};
 
     right: 20%;
     top: 25%;
@@ -54,19 +54,22 @@ export const CategoryButton = styled(Link)`
     text-decoration: none;
     cursor: pointer;
     background: none;
-    color: ${(props) =>(props.$isActiveCategory ? ' #9758A6' : '#61a120')};
+    color: ${(props) => (props.$isActiveCategory ? 
+        (props) => props.theme.purple : 
+        (props) => props.theme.green)};
     font-size: 24px;
     font-weight: 600;
     padding-bottom: 5px;
     line-height: 20px;
     border: none;
-    border-bottom: ${(props) => props.$isActiveCategory && '4px solid #61a120'};
+    border-bottom: ${(props) => props.$isActiveCategory &&
+         `4px solid ${(props) => props.theme.green}`};
    
     &:hover{
-        border-bottom: 4px solid #6f357c;
+        border-bottom: 4px solid  ${(props) => props.theme.secondDarkPurple};
     }
     &:active{
-        color: #ff8c05;
+        color:  ${(props) => props.theme.orange};
     }
 `;
 
@@ -74,19 +77,20 @@ export const ButtonReturn = styled(Link)`
  text-decoration: none;
     cursor: pointer;
     background: none;
-    color: ${(props) =>(props.$isActiveCategory ? ' #9758A6' : '#61a120')};
+    color: ${(props) =>(props.$isActiveCategory ? 
+        (props) => props.theme.purple : 
+        (props) => props.theme.green)};
     font-size: 24px;
     font-weight: 600;
     padding-bottom: 5px;
     line-height: 20px;
     border: none;
-    border-bottom: ${(props) => props.$isActiveCategory && '4px solid #61a120'};
     
     &:hover{
-        border-bottom: 4px solid #6f357c;
+        border-bottom: 4px solid  ${(props) => props.theme.secondDarkPurple};
     }
     &:active{
-        opacity: #ff8c05;
+        opacity:  ${(props) => props.theme.orange};
         }
 `;
 

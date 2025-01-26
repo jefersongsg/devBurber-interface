@@ -14,14 +14,14 @@ export const Banner = styled.div`
     background: url('${BannerHome}') no-repeat;
     background-size: cover;
     background-position: center;
-    background-color: #121212;
+    background-color: ${(props) => props.theme.mainBlack};
     
     h1 {
     font-family: 'Road Rage';
     font-size: 80px;
     line-height: 60px;
     position: absolute;
-    color: #ffffff;
+    color:  ${(props) => props.theme.white};
     
     right: 10%;
     top: 30%;

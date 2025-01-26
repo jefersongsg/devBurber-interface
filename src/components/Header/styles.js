@@ -33,19 +33,21 @@ export const Navigation = styled.div`
 
         hr {
           height: 20px;
-          border: 1px solid #625e5e;
+          border: 1px solid  ${(props) => props.theme.darkGray};
         }
     }
 `;
 
 export const HeaderLink = styled(Link)`
-    color: ${(props) => (props.$isActive ? '#9758a6' : '#fff')};
+    color: ${(props) => (props.$isActive ? 
+    (props) => props.theme.purple : 
+    (props) => props.theme.white)};
     text-decoration: none;
     font-size: 14px;
     transition: color 200ms;
 
     &:hover {
-        color: #9758a6;
+        color:  ${(props) => props.theme.purple};
     }
 `;
 
@@ -63,19 +65,19 @@ export const Profile = styled.div`
     font-size: 14px;
 
     p {
-        color: #fff;
+        color:  ${(props) => props.theme.white};
         line-height: 90%;
         font-weight: 300;
 
         span {
         font-weight: 700;
-        color: #9758a6;
+        color:  ${(props) => props.theme.purple};
         }
     }
 `;
 
 export const Logout = styled.button`
-    color: #ff3205;
+    color:  ${(props) => props.theme.red};
     text-decoration: none;
     font-weight: 700;
     background-color: transparent;
