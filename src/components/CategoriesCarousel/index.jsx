@@ -18,7 +18,7 @@ export function CategoriesCarousel() {
 
             setCategories(data);
          }
-         
+        
         loadCategories();
     }, []);
 
@@ -59,11 +59,12 @@ export function CategoriesCarousel() {
                                 {
                                     pathname: '/cardapio',
                                     search: `?categoria=${category.id}`
-                                }
-                            );
+                                },
+                            ); 
                         }}
                         >
-                            {category.name}</CategoryButton>
+                            {category.name}
+                        </CategoryButton>
                     </ContainerItems>
                 ))}
             </Carousel>

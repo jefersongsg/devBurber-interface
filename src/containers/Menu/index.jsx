@@ -98,7 +98,7 @@ export function Menu() {
                     </CategoryButton>
                 ))}
                
-                <ButtonReturn onClick={() => navigate('/')}>
+                <ButtonReturn to={'/'}>
                     <ArrowFatLeft color='#61a120' weight='fill' size={20} />
                      Voltar</ButtonReturn>
             </CategoryMenu>

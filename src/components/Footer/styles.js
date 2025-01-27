@@ -7,6 +7,7 @@ export const Container = styled.div`
     justify-content: center;
     height: 45px;
     background-color:  ${(props) => props.theme.darkPurple};
+    margin-bottom: auto;
 
     h1{
       color:  ${(props) => props.theme.white};

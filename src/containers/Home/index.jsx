@@ -6,7 +6,7 @@ import { Banner, Container} from './styles';
 export function Home() {
      
     return (
-        <main>
+        <>
         <Banner>
             <h1>Bem-Vindo(a)!</h1>
         </Banner>
@@ -16,6 +16,6 @@ export function Home() {
                 <OffersCarousel/>
             </div>
         </Container>
-        </main>
+        </>
     );
 }
