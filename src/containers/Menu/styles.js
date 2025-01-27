@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
     width: 100%;
-    min-height: 100vh;
+    height: 100%;
     background:linear-gradient(
     rgba(255,255,255, 0.3),
     rgba(255,255,255, 0.5)
@@ -101,5 +101,5 @@ export const ProductsContainer = styled.div`
     gap: 60px;
     justify-content: center;
     max-width: 1280px;
-    margin: 50px auto;
+    margin-top: 50px;
 `;

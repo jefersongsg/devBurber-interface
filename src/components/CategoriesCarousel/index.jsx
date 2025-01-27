@@ -58,8 +58,8 @@ export function CategoriesCarousel() {
                             navigate(
                                 {
                                     pathname: '/cardapio',
-                                    search: `?categoria=${category.id}`
-                                },
+                                    search: `categoria?=${category.id}`
+                                }
                             ); 
                         }}
                         >

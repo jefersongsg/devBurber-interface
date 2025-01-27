@@ -51,7 +51,11 @@ export function Login() {
                     success: {
                         render() {
                             setTimeout(() => {
+                               if (userData?.admin) {
+                                navigate('/admin/home');
+                                }else{
                                 navigate('/');
+                                }
                             }, 2000);
                             return 'Seja Bem-vindo(a) 😊';
                         }

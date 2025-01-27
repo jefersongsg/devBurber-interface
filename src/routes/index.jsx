@@ -3,6 +3,8 @@ import { Route, Routes, } from 'react-router-dom';
 
 import { Login, Home, Menu, Register, Cart, CompletePayment, Checkout } from '../containers';
 import { UserLayout } from '../layout/UserLayout';
+import { AdminLayout } from '../layout/AdminLayout';
+import { Admin } from '../containers/index';
 
 
 export function Router() {
@@ -14,6 +16,10 @@ export function Router() {
             <Route path='/carrinho' element={<Cart/>} />
             <Route path='/checkout' element={<Checkout/>} />
             <Route path='/complete' element={<CompletePayment/>} />
+            </Route>
+
+            <Route path='/admin' element={<AdminLayout/>}>
+                <Route path='/admin/home' element={<Admin/>}/>
             </Route>
             
             <Route path='/login' element={<Login/>} />
