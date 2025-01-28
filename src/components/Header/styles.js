@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const Container = styled.div`
-    background-color: #000000;
+    background-color:  ${(props) => props.theme.mainBlack};
     width: 100%;
     height: 72px;
     padding: 0 60px;
