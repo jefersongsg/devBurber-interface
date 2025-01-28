@@ -1,22 +1,14 @@
 
 export * from './Button'
-
+export * from './ButtonAdm'
 export * from './CardProducts'
-
 export * from './CartButton'
-
 export * from './CategoriesCarousel'
-
 export * from './Footer'
-
 export * from './Header'
-
 export * from './OffersCarousel'
-
 export * from './Table'
-
 export * from './CartItens'
-
 export * from './CartResume'
-
 export * from './Stripe/CheckoutForm'
+export * from './SideNavAdmin'
