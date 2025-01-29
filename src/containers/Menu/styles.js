@@ -62,8 +62,8 @@ export const CategoryButton = styled(Link)`
     padding-bottom: 5px;
     line-height: 20px;
     border: none;
-    border-bottom: ${(props) => props.$isActiveCategory &&
-         `4px solid ${(props) => props.theme.green}`};
+    border-bottom: ${(props) => (props.$isActiveCategory ?
+    (props) => props.theme.purple : 'transparent')};
    
     &:hover{
         border-bottom: 4px solid  ${(props) => props.theme.secondDarkPurple};
@@ -97,9 +97,7 @@ export const ButtonReturn = styled(Link)`
 export const ProductsContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    padding: 30px;
+    padding: 60px;
     gap: 60px;
-    justify-content: center;
-    max-width: 1280px;
     margin-top: 50px;
 `;

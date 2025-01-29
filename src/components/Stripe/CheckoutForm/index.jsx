@@ -92,11 +92,11 @@ export function CheckoutForm() {
   }
 
   return (
-    <div className="container">
+    <div className="containerstripe">
       <form id="payment-form" onSubmit={handleSubmit}>
 
         <PaymentElement id="payment-element" options={paymentElementOptions} />
-        <button disabled={isLoading || !stripe || !elements} id="submit" className="button">
+        <button disabled={isLoading || !stripe || !elements} id="submit" className="buttonstripe">
           <span id="button-text">
             {isLoading ? <div className="spinner" id="spinner"></div> : "Pagar Agora!"}
           </span>

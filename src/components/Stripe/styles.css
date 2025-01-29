@@ -10,7 +10,7 @@
     width: 100vw;
   } 
 
-.container {
+.containerstripe {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -43,7 +43,7 @@
   }
   
   /* Buttons and links */
-  .button {
+  .buttonstripe {
     background: #9400de;
     font-family: Arial, sans-serif;
     color: #ffffff;
@@ -59,11 +59,11 @@
     width: 100%;
   }
   
-  .button:hover {
+  .buttonstripe:hover {
     filter: contrast(115%);
   }
   
-  .button:disabled {
+  .buttonstripe:disabled {
     opacity: 0.5;
     cursor: default;
   }

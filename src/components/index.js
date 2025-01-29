@@ -1,6 +1,5 @@
 
 export * from './Button'
-export * from './ButtonAdm'
 export * from './CardProducts'
 export * from './CartButton'
 export * from './CategoriesCarousel'

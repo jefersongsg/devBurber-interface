@@ -59,8 +59,9 @@ export function CategoriesCarousel() {
                                 {
                                     pathname: '/cardapio',
                                     search: `categoria?=${category.id}`
-                                }
-                            ); 
+                                },
+                                
+                            );  setactiveCategory(category.id)
                         }}
                         >
                             {category.name}

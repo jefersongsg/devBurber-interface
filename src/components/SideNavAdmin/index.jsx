@@ -1,18 +1,36 @@
 
-import ImgLogo from '../../assets/logo.svg'
-import { Logout } from '../Header/styles';
-import { Container } from './styles';
-import { ButtonAdm } from '../../components';
-import { Basket, ClipboardText, ShoppingCartSimple, SignOut } from '@phosphor-icons/react'
+import Logo from '../../assets/logo.svg';
+import { useUser } from '../../hooks/UserContext';
+import { Container, Footer, NavLink, NavLinkContainer } from './styles';
+import { navLinks } from './navLinks';
+import { SignOut } from '@phosphor-icons/react';
+import { useResolvedPath } from 'react-router-dom';
 
 export function SideNavAdmin() {
+    const { logout } = useUser();
+    const { pathname } = useResolvedPath();
+
     return (
         <Container>
-            <img src={ImgLogo} alt='Devburger-logo'/>
-           <ButtonAdm > <ClipboardText size={32}/>  Pedidos</ButtonAdm>
-            <ButtonAdm> <Basket size={32} /> Produtos</ButtonAdm>
-            <ButtonAdm> <ShoppingCartSimple size={32} /> Adicionar produtos</ButtonAdm>
-            <Logout> <SignOut size={32} /> Sair</Logout>
+            <img src={Logo} alt='Devburger-logo' />
+            <NavLinkContainer>
+                {navLinks.map((link) => (
+                    <NavLink
+                        key={link.id}
+                        $isActive={pathname === link.path}
+                        to={link.path}
+                    >
+                        {link.icon}
+                        <span>{link.label}</span>
+                    </NavLink>
+                ))}
+            </NavLinkContainer>
+            <Footer>
+                <NavLink to={'/login'} onClick={logout}>
+                    <SignOut />
+                    <span>Sair</span>
+                </NavLink>
+            </Footer>
         </Container>
     );
 }
