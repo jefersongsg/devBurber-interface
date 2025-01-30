@@ -13,7 +13,7 @@ import { api } from '../../../services/api.js';
 
 export function Orders() {
   const [orders, setOrders] = useState([]);
-  const  [rows setRows] = useState([]);
+  const  [rows, setRows] = useState([]);
 
   useEffect(() => {
     async function loadOrders(){
