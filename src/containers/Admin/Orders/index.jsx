@@ -20,8 +20,6 @@ export function Orders() {
       const {data} = await api.get('orders');
 
       setOrders(data);
-
-      console.log(data);
     }
     loadOrders();
   }, []);
@@ -37,7 +35,7 @@ export function Orders() {
     };
   }
   useEffect(() => {
-    const newRows = orders.map( (order) => createData(order));
+    const newRows = orders.map((order) => createData(order));
 
     setRows(newRows);
   },[orders]);
@@ -49,14 +47,19 @@ export function Orders() {
           <TableRow>
             <TableCell />
             <TableCell>Pedidos</TableCell>
-            <TableCell >Cliente</TableCell>
-            <TableCell >Data do pedido</TableCell>
-            <TableCell >Status</TableCell>
+            <TableCell>Cliente</TableCell>
+            <TableCell>Data do pedido</TableCell>
+            <TableCell>Status</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <Row key={row._id} row={row} />
+            <Row 
+            key={row.orderId} 
+            row={row} 
+            orders={orders}
+            setOrders={setOrders}
+            />
           ))}
         </TableBody>
       </Table>

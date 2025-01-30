@@ -12,11 +12,28 @@ import Typography from '@mui/material/Typography';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { useState } from 'react';
+import { formatDate } from '../../../utils/formatDate';
+import { ProductImg, SelectStatus } from './styles';
+import { orderStatusOptions } from './ordersStatus'
+import { api } from '../../../services/api';
 
-
-export function Row(props) {
-    const { row } = props;
+export function Row({row, setOrders, orders }) { 
     const [open, setOpen] = useState(false);
+
+    async function newStatusOrder(id, status) {
+      try{
+        await api.put(`orders/${id}`, {status});
+
+        const newOrders = orders.map(order => 
+          order._id === id ? {...order, status} : order);
+
+          setOrders(newOrders);
+
+      }catch (err) {
+        console.error(err);
+      }
+      
+    }
   
     return (
       <>
@@ -30,12 +47,19 @@ export function Row(props) {
               {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
             </IconButton>
           </TableCell>
-          <TableCell component="th" scope="row">
-            {row.orderId}
+          <TableCell >{row.orderId}</TableCell>
+          <TableCell>{row.name}</TableCell>
+          <TableCell>{formatDate(row.date)}</TableCell>
+          <TableCell>
+            <SelectStatus 
+            options={orderStatusOptions.filter((status) => status.id !== 0)}
+            placeholder='Status'
+            defaltValue={orderStatusOptions.find(
+              (status) => status.value === row.status || null,
+            )}
+            onChange={(status) => newStatusOrder(row.orderId, status.value)}
+            />
           </TableCell>
-          <TableCell align="right">{row.name}</TableCell>
-          <TableCell align="right">{row.date}</TableCell>
-          <TableCell align="right">{row.status}</TableCell>
         </TableRow>
         <TableRow>
           <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
@@ -50,7 +74,7 @@ export function Row(props) {
                       <TableCell>Quantidade</TableCell>
                       <TableCell>Produtos</TableCell>
                       <TableCell>Categorias</TableCell>
-                      <TableCell></TableCell>
+                      <TableCell>Imagen do produto</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
@@ -62,7 +86,7 @@ export function Row(props) {
                         <TableCell>{product.name}</TableCell>
                         <TableCell>{product.category}</TableCell>
                         <TableCell>
-                          <img src={product.url} alt={product.name} />
+                          <ProductImg src={product.url} alt={product.name} />
                         </TableCell>
                       </TableRow>
                     ))}
@@ -77,10 +101,12 @@ export function Row(props) {
   }
   
   Row.propTypes = {
-    row: PropTypes.shape({
+      orders: PropTypes.array.isRequired,
+      setOrders: PropTypes.func.isRequired,
+      row: PropTypes.shape({
       name: PropTypes.string.isRequired,
-      orderId: PropTypes.number.isRequired,
-      date: PropTypes.number.isRequired,
+      orderId: PropTypes.string.isRequired,
+      date: PropTypes.string.isRequired,
       products: PropTypes.arrayOf(
         PropTypes.shape({
           id: PropTypes.number.isRequired,
