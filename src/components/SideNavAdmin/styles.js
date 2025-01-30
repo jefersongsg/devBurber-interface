@@ -33,6 +33,7 @@ export const NavLink = styled(Link)`
     padding: 15px;
     gap: 15px;
     border-radius: 3px;
+    margin-top: 40px;
  `;
 
 export const Footer = styled.footer`
