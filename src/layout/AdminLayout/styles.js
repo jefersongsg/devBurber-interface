@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     display: grid;
-    grid-template-columns: minmax(220px, 320px) 1fr;
+    grid-template-columns: minmax(300px, 340px) 1fr;
 
     main {
         display: flex;

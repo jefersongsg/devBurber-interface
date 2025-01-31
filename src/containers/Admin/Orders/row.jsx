@@ -19,8 +19,10 @@ import { api } from '../../../services/api.js';
 
 export function Row ({row, setOrders, orders }) { 
     const [open, setOpen] = useState(false);
+    const [loading, setLoading] = useState(false)
 
     async function newStatusOrder(id, status) {
+      setLoading(true)
       try{
         await api.put(`orders/${id}`, {status});
 
@@ -31,6 +33,8 @@ export function Row ({row, setOrders, orders }) {
 
       }catch (err) {
         console.error(err);
+      }finally {
+        setLoading(false)
       }
     }
   
@@ -57,6 +61,7 @@ export function Row ({row, setOrders, orders }) {
               (status) => status.value === row.status || null,
             )}
             onChange={(status) => newStatusOrder(row.orderId, status.value)}
+            isLoading={loading}
             />
           </TableCell>
         </TableRow>

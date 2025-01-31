@@ -9,6 +9,8 @@ import Paper from '@mui/material/Paper';
 import { Row } from './row';
 import { useEffect, useState } from 'react';
 import { api } from '../../../services/api.js';
+import { orderStatusOptions } from './ordersStatus.js'
+import { Filter, FilterOption} from './styles.js';
 
 
 export function Orders() {
@@ -39,8 +41,18 @@ export function Orders() {
 
     setRows(newRows);
   },[orders]);
+
+  function handletStatus(status){}
   
   return (
+    <>
+     <Filter>
+      {orderStatusOptions.map((status) => (
+        <FilterOption key={status.id} onClick={() => handletStatus(status)}>
+          {status.label}
+        </FilterOption>
+      ))}
+      </Filter>
     <TableContainer component={Paper}>
       <Table aria-label="collapsible table">
         <TableHead>
@@ -64,5 +76,6 @@ export function Orders() {
         </TableBody>
       </Table>
     </TableContainer>
+    </>
   );
 }
