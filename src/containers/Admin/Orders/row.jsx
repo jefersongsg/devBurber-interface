@@ -14,10 +14,10 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { useState } from 'react';
 import { formatDate } from '../../../utils/formatDate';
 import { ProductImg, SelectStatus } from './styles';
-import { orderStatusOptions } from './ordersStatus'
-import { api } from '../../../services/api';
+import { orderStatusOptions } from './ordersStatus.js'
+import { api } from '../../../services/api.js';
 
-export function Row({row, setOrders, orders }) { 
+export function Row ({row, setOrders, orders }) { 
     const [open, setOpen] = useState(false);
 
     async function newStatusOrder(id, status) {
@@ -32,7 +32,6 @@ export function Row({row, setOrders, orders }) {
       }catch (err) {
         console.error(err);
       }
-      
     }
   
     return (
@@ -54,7 +53,7 @@ export function Row({row, setOrders, orders }) {
             <SelectStatus 
             options={orderStatusOptions.filter((status) => status.id !== 0)}
             placeholder='Status'
-            defaltValue={orderStatusOptions.find(
+            defaultValue={orderStatusOptions.find(
               (status) => status.value === row.status || null,
             )}
             onChange={(status) => newStatusOrder(row.orderId, status.value)}
@@ -104,8 +103,8 @@ export function Row({row, setOrders, orders }) {
       orders: PropTypes.array.isRequired,
       setOrders: PropTypes.func.isRequired,
       row: PropTypes.shape({
-      name: PropTypes.string.isRequired,
       orderId: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
       date: PropTypes.string.isRequired,
       products: PropTypes.arrayOf(
         PropTypes.shape({
