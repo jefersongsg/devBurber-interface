@@ -16,6 +16,7 @@ import { Filter, FilterOption} from './styles.js';
 export function Orders() {
   const [orders, setOrders] = useState([]);//BACKUP
   const [filteredOrders, setFilteredOrders] = useState([]);// OS VALORES QUE ESTÃO NA TELA
+  const [activeSts, setActiveSts] = useState(0);
 
   const  [rows, setRows] = useState([]);
 
@@ -54,13 +55,17 @@ export function Orders() {
 
      setFilteredOrders(newOrders);
     }
+    setActiveSts(status.id);
   }
   
   return (
     <>
      <Filter>
       {orderStatusOptions.map((status) => (
-        <FilterOption key={status.id} onClick={() => handletStatus(status)}>
+        <FilterOption key={status.id} 
+        onClick={() => handletStatus(status)}
+        $isActiveSts={activeSts === status.id}
+        >
           {status.label}
         </FilterOption>
       ))}

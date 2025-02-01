@@ -19,7 +19,10 @@ export const FilterOption = styled.button`
     cursor: pointer; 
     background: none;
     border: none;
-    color: ${(props) => props.theme.darkGray};
+    color: ${(props) => 
+    props.$isActiveSts ? props.theme.purple : props.theme.darkGray};
+    border-bottom: ${(props) => 
+    props.$isActiveSts ?  `3px solid ${props.theme.purple}` : props.theme.darkGray};
     font-size: 18px;
     line-height: 20px;
     padding-bottom: 5px;
