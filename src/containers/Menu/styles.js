@@ -63,7 +63,7 @@ export const CategoryButton = styled(Link)`
     line-height: 20px;
     border: none;
     border-bottom: ${(props) => (props.$isActiveCategory ?
-    (props) => props.theme.purple : 'transparent')};
+    `4px solid ${props.theme.purple}` : 'transparent')};
    
     &:hover{
         border-bottom: 4px solid  ${(props) => props.theme.secondDarkPurple};

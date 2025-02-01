@@ -14,7 +14,9 @@ import { Filter, FilterOption} from './styles.js';
 
 
 export function Orders() {
-  const [orders, setOrders] = useState([]);
+  const [orders, setOrders] = useState([]);//BACKUP
+  const [filteredOrders, setFilteredOrders] = useState([]);// OS VALORES QUE ESTÃO NA TELA
+
   const  [rows, setRows] = useState([]);
 
   useEffect(() => {
@@ -22,11 +24,13 @@ export function Orders() {
       const {data} = await api.get('orders');
 
       setOrders(data);
+      setFilteredOrders(data);
     }
     loadOrders();
-  }, []);
-  
 
+  },
+  []);
+  
   function createData(order) {
     return {
       name: order.user.name,
@@ -37,12 +41,20 @@ export function Orders() {
     };
   }
   useEffect(() => {
-    const newRows = orders.map((order) => createData(order));
+    const newRows = filteredOrders.map((order) => createData(order));
 
     setRows(newRows);
-  },[orders]);
+  },[filteredOrders]);
 
-  function handletStatus(status){}
+  function handletStatus(status){
+    if (status.id === 0) {
+      setFilteredOrders(orders);
+    }else {
+     const newOrders = orders.filter((order) => order.status === status.value);
+
+     setFilteredOrders(newOrders);
+    }
+  }
   
   return (
     <>
