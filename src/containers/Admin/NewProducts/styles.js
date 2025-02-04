@@ -1,6 +1,5 @@
 
 import { Button } from '../../../components';
-
 import ReactSelect from 'react-select';
 import styled from 'styled-components';
 
@@ -73,6 +72,7 @@ export const ErrorMessage = styled.span`
      line-height: 80%;
      font-weight: 60px;
 `;
+
 export const ContainerCheckbox = styled.div`
     display: flex;
     gap: 10px;

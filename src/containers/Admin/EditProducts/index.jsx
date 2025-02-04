@@ -13,7 +13,10 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const schema = yup
   .object({
     name: yup.string().required('Digite o nome do produto'),
-    price: yup.number().positive().required('Digite o preço do produto').typeError('Digite o preço do produto'),
+    price: yup.number()
+    .positive()
+    .required('Digite o preço do produto')
+    .typeError('Digite o preço do produto'),
     category: yup.object().required('Escolha uma categoria'),
     offer: yup.bool(),
   })
@@ -55,7 +58,6 @@ export function EditProducts() {
     productFormData.append('file', data.file[0]);
     productFormData.append('offer', data.offer);
 
-
     await toast.promise(api.put(`/products/${product.id}`, productFormData), {
       pending: 'Editando o produto...',
       success: 'Produto editado com sucesso',
@@ -72,7 +74,6 @@ export function EditProducts() {
         <InputGrup>
           <Label>Nome</Label>
           <Input type='text'
-            autoComplete='none'
             {...register('name')}
             defaultValue={product.name}
           />
@@ -84,7 +85,7 @@ export function EditProducts() {
           <Input type='number'
             {...register('price')}
             defaultValue={product.price / 100}
-            min={5} />
+            />
           <ErrorMessage>{errors?.price?.message}</ErrorMessage>
         </InputGrup>
 
@@ -95,7 +96,6 @@ export function EditProducts() {
               {...register('file')}
               accept='image/png, image/jpeg'
               onChange={(value) => {
-
                 setFileName(value.target.files[0]?.name);
                 register('file').onChange(value);
               }}
@@ -108,7 +108,7 @@ export function EditProducts() {
         <InputGrup>
           <ContainerCheckbox>
             <input type='checkbox'
-              defaultValue={product.offer}
+              defaultChecked={product.offer}
               {...register('offer')}
             />
             <Label>Produto em Oferta ?</Label>
