@@ -3,10 +3,12 @@ import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { Image } from '@phosphor-icons/react';
-import { Container, Form, InputGrup, Label, Input, LabelUpload, Select, SubmitButt, ErrorMessage } from './styles';
+import { Container, Form, InputGrup, Label, Input, LabelUpload, Select,
+   SubmitButt, ErrorMessage, ContainerCheckbox } from './styles';
 import { useEffect, useState } from 'react';
 import { api } from '../../../services/api';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 
 const schema = yup
@@ -21,13 +23,16 @@ const schema = yup
       })
       .test('fileSize', 'Carregue arquivos até 3mb', (value) => {
         return value && value.length > 0 && value[0].size <= 300000;
-      })
+      }),
+    offer: yup.bool(),
   })
   .required()
 
 export function NewProducts() {
   const [filename, setFileName] = useState(null);
   const [categories, setCategories] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function loadCategories() {
@@ -55,12 +60,16 @@ export function NewProducts() {
     productFormData.append('price', data.price * 100);
     productFormData.append('category_id', data.category.id);
     productFormData.append('file', data.file[0]);
+    productFormData.append('offer', data.offer);
 
     await toast.promise(api.post('/products', productFormData), {
       pending: 'Adicinando o produto...',
       success: 'Produto criado com sucesso',
       error: 'Falha ao adicionar o produto, tente novamente',
      });
+     setTimeout(() => {
+      navigate('/admin/produtos');
+    },2000);
   };
 
   return (
@@ -116,6 +125,15 @@ export function NewProducts() {
             )}
           />
           <ErrorMessage>{errors?.category?.message}</ErrorMessage>
+        </InputGrup>
+
+        <InputGrup>
+          <ContainerCheckbox>
+            <input type='checkbox'
+              {...register('offer')}
+            />
+            <Label>Produto em Oferta ?</Label>
+          </ContainerCheckbox>
         </InputGrup>
 
         <SubmitButt>Adicionar Produto</SubmitButt>

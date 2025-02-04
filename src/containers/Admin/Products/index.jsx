@@ -7,13 +7,16 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { api } from '../../../services/api';
-import {  useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Container, ProductImg, Editbutton } from './styles';
 import { PencilLine } from '@phosphor-icons/react/dist/ssr';
 import { formatPrice } from '../../../utils/formatPrice.js'
+import { CheckCircle, XCircle } from '@phosphor-icons/react';
+import { useNavigate } from 'react-router-dom';
 
 export function Products() {
     const [ products, setProducts] = useState([]);
+    const navigate = useNavigate();
     
     useEffect(() => {
         async function loadProducts() {
@@ -23,6 +26,17 @@ export function Products() {
         }
         loadProducts();
     },[]);
+
+    function isOffer(offer) {
+      if (offer) {
+        return <CheckCircle color='#0cf80c' size={32}/>
+      }else{
+        return<XCircle color='#eb0000' size={32}/>
+      }
+    }
+    function editProduct(product) {
+      navigate('/admin/editar-produto',{state:{ product }});
+    }
 
     return(
         <Container>
@@ -47,10 +61,10 @@ export function Products() {
                 {product.name}
               </TableCell>
               <TableCell align="center">{formatPrice(product.price)}</TableCell>
-              <TableCell align="center">{product.offer}</TableCell>
+              <TableCell align="center">{isOffer(product.offer)}</TableCell>
               <TableCell align="center"><ProductImg src={product.url}/></TableCell>
               <TableCell align="center">
-                <Editbutton>
+                <Editbutton onClick={()=> editProduct(product)}>
                     <PencilLine/>
                 </Editbutton>
               </TableCell>
