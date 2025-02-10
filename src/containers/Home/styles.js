@@ -28,7 +28,7 @@ export const Banner = styled.div`
     }
 `;
 
-export const Container = styled.div`
+export const ContainerCarousel = styled.div`
     background:linear-gradient(
     rgba(255,255,255, 0.3),
     rgba(255,255,255, 0.5)

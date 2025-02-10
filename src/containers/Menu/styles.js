@@ -50,7 +50,7 @@ export const CategoryMenu = styled.div`
     margin-top: 30px;
 `;
 
-export const CategoryButton = styled(Link)`
+export const CategoriaButton = styled(Link)`
     text-decoration: none;
     cursor: pointer;
     background: none;

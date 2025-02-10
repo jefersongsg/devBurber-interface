@@ -1,7 +1,7 @@
 
 import { CategoriesCarousel, OffersCarousel } from '../../components';
 
-import { Banner, Container} from './styles';
+import { Banner, ContainerCarousel } from './styles';
 
 export function Home() {
      
@@ -10,12 +10,12 @@ export function Home() {
         <Banner>
             <h1>Bem-Vindo(a)!</h1>
         </Banner>
-        <Container>
+        <ContainerCarousel>
             <div>
                 <CategoriesCarousel/>
                 <OffersCarousel/>
             </div>
-        </Container>
+        </ContainerCarousel>
         </>
     );
 }

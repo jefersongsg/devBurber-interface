@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from 'react';
-import { Banner, ButtonReturn, CategoryButton, CategoryMenu, Container, ProductsContainer, } from './styles'
+import { Banner, ButtonReturn, CategoriaButton, CategoryMenu, Container, ProductsContainer, } from './styles'
 import { api } from '../../services/api';
 import { CardProducts } from '../../components/CardProducts';
 import { formatPrice } from '../../utils/formatPrice'
@@ -18,26 +18,26 @@ export function Menu() {
 
     const queryParams = new URLSearchParams(search);
 
-    const [activeCategory, setactiveCategory] = useState(() => {
-        const categoryId = +queryParams.get('categoria');
-
+    const [activeCategory, setActiveCategory] = useState(() => {
+        const categoryId = +queryParams.get('categorias');
+       
         if (categoryId){
             return categoryId;
         }
         return 0;
+       
     });
 
     useEffect(() => {
         async function loadCategories() {
             const { data } = await api.get('/categories');
-
             const newCategories = [{ id: 0, name: 'Todas' }, ...data];
 
             setCategories(newCategories);
         }
         async function loadProducts() {
             const { data } = await api.get('/products');
-
+            console.log(data);
             const newProducts = data
                 .map((product) => ({
                     currencyValue: formatPrice(product.price),
@@ -78,7 +78,7 @@ export function Menu() {
             </Banner>
             <CategoryMenu>
                 {categories.map((category) => (
-                    <CategoryButton
+                    <CategoriaButton
                         key={category.id}
                         $isActiveCategory={category.id === activeCategory}
                         onClick={() => {
@@ -91,16 +91,17 @@ export function Menu() {
                                     replace: true,
                                 },
                             );
-                            setactiveCategory(category.id)
+                            setActiveCategory(category.id)
                         }}
                     >
                         {category.name}
-                    </CategoryButton>
+                    </CategoriaButton>
                 ))}
                
                 <ButtonReturn to={'/'}>
                     <ArrowFatLeft color='#61a120' weight='fill' size={20} />
-                     Voltar</ButtonReturn>
+                     Voltar
+                </ButtonReturn>
             </CategoryMenu>
             <ProductsContainer>
                 {filteredProducts.map((product) => (

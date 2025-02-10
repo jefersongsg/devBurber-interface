@@ -120,6 +120,13 @@
     animation: loading 2s infinite ease;
   }
   /* Payment status page */
+  .container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 88vh;
+  }
+
   #payment-status {
     display: flex;
     justify-content: center;

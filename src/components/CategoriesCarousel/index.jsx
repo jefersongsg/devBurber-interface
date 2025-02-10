@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from 'react'
-import { api } from '../../services/api'
+import { api } from '../../services/api.js'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
@@ -18,7 +18,6 @@ export function CategoriesCarousel() {
 
             setCategories(data);
          }
-        
         loadCategories();
     }, []);
 
@@ -41,7 +40,6 @@ export function CategoriesCarousel() {
         }
     };
 
-
     return (
         <Container>
             <Title> CATEGORIAS </Title>
@@ -55,13 +53,8 @@ export function CategoriesCarousel() {
                     <ContainerItems key={category.id} imgurl={category.url}>
                         <CategoryButton 
                          onClick={() => {
-                            navigate(
-                                {
-                                    pathname: '/cardapio',
-                                    search: `categoria?=${category.id}`
-                                },
-                                
-                            );  setactiveCategory(category.id)
+                            navigate('/cardapio',
+                                { state: {categoryId: category.id}});
                         }}
                         >
                             {category.name}
