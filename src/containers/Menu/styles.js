@@ -54,8 +54,8 @@ export const CategoriaButton = styled(Link)`
     text-decoration: none;
     cursor: pointer;
     background: none;
-    color: ${(props) => (props.$isActiveCategory ? 
-        (props) => props.theme.purple : 
+    color: ${(props) => (props.$isActiveCategory ?
+        (props) => props.theme.purple :
         (props) => props.theme.green)};
     font-size: 24px;
     font-weight: 600;
@@ -63,7 +63,7 @@ export const CategoriaButton = styled(Link)`
     line-height: 20px;
     border: none;
     border-bottom: ${(props) => (props.$isActiveCategory ?
-    `4px solid ${props.theme.purple}` : 'transparent')};
+        `4px solid ${props.theme.purple}` : 'transparent')};
    
     &:hover{
         border-bottom: 4px solid  ${(props) => props.theme.secondDarkPurple};
@@ -74,15 +74,14 @@ export const CategoriaButton = styled(Link)`
 `;
 
 export const ButtonReturn = styled(Link)`
- text-decoration: none;
+    text-decoration: none;
     cursor: pointer;
     background: none;
-    color: ${(props) =>(props.$isActiveCategory ? 
-        (props) => props.theme.purple : 
+    color: ${(props) => (props.$isActiveCategory ?
+        (props) => props.theme.purple :
         (props) => props.theme.green)};
     font-size: 24px;
     font-weight: 600;
-    padding-bottom: 5px;
     line-height: 20px;
     border: none;
     

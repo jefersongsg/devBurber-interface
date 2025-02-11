@@ -60,7 +60,7 @@ export const  ContainerItems = styled.div`
     height: 200px;
 `;
 
-export const  CategoryButton = styled(Link)`
+export const  CategoryButton = styled.button`
         color:  ${(props) => props.theme.white};
         background-color: rgba(0, 0, 0, 0.5);
         padding: 8px 20px;
@@ -69,6 +69,7 @@ export const  CategoryButton = styled(Link)`
         font-weight: 500;
         margin-top: 115px;
         text-decoration: none;
+        border: none;
         
         &:hover{
             background-color:  ${(props) => props.theme.purple};

@@ -4,29 +4,13 @@ import { Banner, ButtonReturn, CategoriaButton, CategoryMenu, Container, Product
 import { api } from '../../services/api';
 import { CardProducts } from '../../components/CardProducts';
 import { formatPrice } from '../../utils/formatPrice'
-import { useLocation, useNavigate } from 'react-router-dom';
 import { ArrowFatLeft } from '@phosphor-icons/react'
 
 export function Menu() {
     const [categories, setCategories] = useState([]);
     const [products, setProducts] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([]);
-
-    const navigate = useNavigate();
-
-    const { search } = useLocation();
-
-    const queryParams = new URLSearchParams(search);
-
-    const [activeCategory, setActiveCategory] = useState(() => {
-        const categoryId = +queryParams.get('categorias');
-       
-        if (categoryId){
-            return categoryId;
-        }
-        return 0;
-       
-    });
+    const [activeCategory, setActiveCategory] = useState(0);
 
     useEffect(() => {
         async function loadCategories() {
@@ -81,26 +65,15 @@ export function Menu() {
                     <CategoriaButton
                         key={category.id}
                         $isActiveCategory={category.id === activeCategory}
-                        onClick={() => {
-                            navigate(
-                                {
-                                    pathname: '/cardapio',
-                                    search: `?categoria=${category.id}`
-                                },
-                                {
-                                    replace: true,
-                                },
-                            );
-                            setActiveCategory(category.id)
-                        }}
+                        onClick={() => { setActiveCategory(category.id) }}
                     >
                         {category.name}
                     </CategoriaButton>
                 ))}
-               
+
                 <ButtonReturn to={'/'}>
                     <ArrowFatLeft color='#61a120' weight='fill' size={20} />
-                     Voltar
+                    Voltar
                 </ButtonReturn>
             </CategoryMenu>
             <ProductsContainer>
