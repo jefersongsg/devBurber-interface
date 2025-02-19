@@ -106,16 +106,6 @@ export function EditProducts() {
         </InputGrup>
 
         <InputGrup>
-          <ContainerCheckbox>
-            <input type='checkbox'
-              defaultChecked={product.offer}
-              {...register('offer')}
-            />
-            <Label>Produto em Oferta ?</Label>
-          </ContainerCheckbox>
-        </InputGrup>
-
-        <InputGrup>
           <Label>Categoria</Label>
           <Controller
             name='category'
@@ -135,6 +125,17 @@ export function EditProducts() {
           />
           <ErrorMessage>{errors?.category?.message}</ErrorMessage>
         </InputGrup>
+
+        <InputGrup>
+          <ContainerCheckbox>
+            <input type='checkbox'
+              defaultChecked={product.offer}
+              {...register('offer')}
+            />
+            <Label>Produto em Oferta ?</Label>
+          </ContainerCheckbox>
+        </InputGrup>
+
         <SubmitButt>Editar Produto</SubmitButt>
       </Form>
     </Container>
