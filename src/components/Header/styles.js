@@ -40,14 +40,14 @@ export const Navigation = styled.div`
 
 export const HeaderLink = styled(Link)`
     color: ${(props) => (props.$isActive ? 
-    (props) => props.theme.purple : 
+    (props) => props.theme.litGreen : 
     (props) => props.theme.white)};
     text-decoration: none;
     font-size: 14px;
     transition: color 200ms;
 
     &:hover {
-        color:  ${(props) => props.theme.purple};
+        color:  ${(props) => props.theme.litGreen};
     }
 `;
 
@@ -71,7 +71,7 @@ export const Profile = styled.div`
 
         span {
         font-weight: 700;
-        color:  ${(props) => props.theme.purple};
+        color:  ${(props) => props.theme.litGreen};
         }
     }
 `;

@@ -87,7 +87,9 @@ export function NewProducts() {
           <Label>Preço</Label>
           <Input type='number'
             {...register('price')}
-            min={5} />
+            min={5}
+            step='0.01'
+            />
           <ErrorMessage>{errors?.price?.message}</ErrorMessage>
         </InputGrup>
 

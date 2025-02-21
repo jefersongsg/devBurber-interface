@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const Root = styled.table`
     border-collapse: collapse;
-    background-color:  ${(props) => props.theme.white};
+    background-color:  ${(props) => props.theme.darkWhite};
     border-radius: 20px;
 `;
 

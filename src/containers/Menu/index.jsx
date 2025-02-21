@@ -21,7 +21,6 @@ export function Menu() {
         }
         async function loadProducts() {
             const { data } = await api.get('/products');
-            console.log(data);
             const newProducts = data
                 .map((product) => ({
                     currencyValue: formatPrice(product.price),

@@ -1,26 +1,24 @@
 
 import styled from 'styled-components';
-import BannerMenu from '../../assets/bannerMenu.svg'
+import BannerMenu from '../../assets/BannerMenu.svg'
 import Background from '../../assets/background.png'
 import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
     width: 100%;
     height: 100%;
-    background:linear-gradient(
-    rgba(255,255,255, 0.3),
-    rgba(255,255,255, 0.5)
-    ),url('${Background}');
+    min-height: 90vh;
+    background: url('${Background}');
+    background-color: ${(props) => props.theme.mainBlack};
 `;
 
 export const Banner = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 350px;
+    height: 300px;
     width: 100%;
     position: relative;
-
     background: url('${BannerMenu}') no-repeat;
     background-position: center;
     background-size: cover;
@@ -32,9 +30,8 @@ export const Banner = styled.div`
     line-height: 60px;
     position: absolute;
     color:  ${(props) => props.theme.white};
-
-    right: 20%;
-    top: 25%;
+    right: 15%;
+    top: 10%;
 
     span {
     display: block;

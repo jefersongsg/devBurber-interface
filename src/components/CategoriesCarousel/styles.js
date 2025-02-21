@@ -36,7 +36,7 @@ export const  Title = styled.h2`
     padding-bottom: 15px;
     position: relative;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 53px;
 
     &::after {
         content: '';

@@ -5,10 +5,8 @@ import Background from '../../assets/background.png';
 
 export const Container = styled.div`
     width: 100%;
-    background: linear-gradient(
-        rgba(255, 255, 255, 0.5),
-        rgba(255, 255, 255, 0.2)
-    ),url('${Background}');
+    background: url('${Background}');
+    background-color: ${(props) => props.theme.mainBlack};
     min-height: 100vh;
 `;
 
